@@ -26,7 +26,7 @@ class InferlessPythonModel:
     def run_function(self, message,
         chat_history,
         system_prompt,
-        max_new_tokens=1024,
+        max_new_tokens=512,
         temperature=0.8,
         top_p=0.95,
         top_k=5):
