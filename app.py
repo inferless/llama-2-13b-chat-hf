@@ -64,6 +64,7 @@ class InferlessPythonModel:
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_id,
                 torch_dtype=torch.float16,
+                load_in_4bit=True,
                 device_map='auto',
                 use_auth_token=token
             )
