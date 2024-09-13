@@ -56,7 +56,7 @@ class InferlessPythonModel:
 
 
     def initialize(self):
-        model_id = 'meta-llama/Llama-2-13b-chat-hf'
+        model_id = 'NousResearch/Llama-2-13b-chat-hf'
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         if torch.cuda.is_available():
             self.model = AutoModelForCausalLM.from_pretrained(
