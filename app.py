@@ -5,8 +5,6 @@ import os
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, TextIteratorStreamer
 
-model_id = 'meta-llama/Llama-2-13b-chat-hf'
-
 class InferlessPythonModel:
     def get_prompt(self, message, chat_history,
                system_prompt):
@@ -58,15 +56,14 @@ class InferlessPythonModel:
 
 
     def initialize(self):
-        token = "<Your HF Token >"
+        model_id = 'meta-llama/Llama-2-13b-chat-hf'
         self.tokenizer = AutoTokenizer.from_pretrained(model_id, use_auth_token=token)
         if torch.cuda.is_available():
             self.model = AutoModelForCausalLM.from_pretrained(
                 model_id,
                 torch_dtype=torch.float16,
                 load_in_4bit=True,
-                device_map='auto',
-                use_auth_token=token
+                device_map='cuda'
             )
         else:
             self.model = None
@@ -83,5 +80,4 @@ class InferlessPythonModel:
         return {"generated_text": result}
 
     def finalize(self):
-        self.tokenizer = None
         self.model = None
