@@ -69,7 +69,7 @@ class InferlessPythonModel:
             self.model = None
 
     def infer(self, inputs):
-        message = inputs['message']
+        message = inputs['prompt']
         chat_history = inputs['chat_history'] if 'chat_history' in inputs else []
         system_prompt = inputs['system_prompt'] if 'system_prompt' in inputs else ''
         result = self.run_function(
