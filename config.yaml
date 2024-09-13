@@ -1,7 +1,5 @@
 build:
-  system_packages:
-    - "libssl-dev"
-    - "libtesseract-dev"
+  cuda_version: "12.1.1"
   python_packages:
     - "accelerate==0.21.0"
     - "bitsandbytes==0.40.2"
