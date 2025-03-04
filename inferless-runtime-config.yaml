@@ -6,4 +6,5 @@ build:
     - "torch==2.4.1"
     - "protobuf==5.28.1"
     - "sentencepiece==0.2.0"
-    - "huggingface-hub==0.25.2"
+    - "hf-transfer==0.1.9"
+    - "huggingface-hub==0.29.1"
